@@ -9,7 +9,6 @@ function add(numbers) {
 
     // Check for multiple delimiters enclosed in brackets
     const delimiterMatches = delimiterPart.match(/\[(.*?)\]/g);
-    console.log(delimiter);
     if (delimiterMatches) {
       const delimiters = delimiterMatches.map((delim) => delim.slice(1, -1));
       delimiter = new RegExp(delimiters.map(escapeRegExp).join("|"));
