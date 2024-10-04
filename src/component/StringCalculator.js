@@ -19,12 +19,23 @@ export function StringCalculator() {
   return (
     <div className="calculator-container">
       <h1 className="calculator-title">String Calculator</h1>
-      <div
-        className="calculator-hint"
-        onMouseEnter={() => setShowGuidelines(true)}
-        onMouseLeave={() => setShowGuidelines(false)}
-      >
-        <span className="info-icon">ℹ️</span>
+      <div className="input-container">
+        <textarea
+          value={input}
+          onFocus={() => setShowGuidelines(true)}
+          onBlur={() => setShowGuidelines(false)}
+          onChange={(e) => setInput(e.target.value || "")}
+          placeholder="Enter numbers"
+          className="calculator-input"
+          rows="4"
+        />
+        <span
+          className="info-icon"
+          onMouseEnter={() => setShowGuidelines(true)}
+          onMouseLeave={() => setShowGuidelines(false)}
+        >
+          ℹ️
+        </span>
         {showGuidelines && (
           <div className="guidelines-popup">
             <p>
@@ -56,15 +67,6 @@ export function StringCalculator() {
           </div>
         )}
       </div>
-      <textarea
-        value={input}
-        onFocus={() => setShowGuidelines(true)}
-        onBlur={() => setShowGuidelines(false)}
-        onChange={(e) => setInput(e.target.value || "")}
-        placeholder="Enter numbers"
-        className="calculator-input"
-        rows="4"
-      />
       <button onClick={handleCalculate} className="calculator-button">
         Calculate
       </button>
